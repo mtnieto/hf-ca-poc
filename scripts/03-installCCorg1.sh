@@ -9,5 +9,5 @@ CORE_PEER_TLS_ENABLED=false
 ORDERER_SYSCHAN_ID=syschain
 
 
-peer chaincode install -n mycontract -v 1.0 -p github.com/hyperledger/fabric/examples/chaincode/go/chaincode_example02 >&log.txt
+peer chaincode install -n mycontract2 -v 1.0 -p github.com/hyperledger/fabric/examples/chaincode/go/chaincode_example02 >&log.txt
 cat log.txt

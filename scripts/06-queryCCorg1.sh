@@ -20,7 +20,7 @@ queryChaincode () {
 	# while 'peer chaincode' command can get the orderer endpoint from the peer (if join was successful),
 	# lets supply it directly as we know it using the "-o" option
 
-	peer chaincode query -C $CHANNEL_NAME -n mycontract -c '{"Args":["query","a"]}' >&log.txt
+	peer chaincode query -C $CHANNEL_NAME -n mycontract2 -c '{"Args":["query","a"]}' >&log.txt
 	res=$?
 	cat log.txt
 	verifyResult $res "Chaincode instantiation on PEER on channel '$CHANNEL_NAME' failed"
