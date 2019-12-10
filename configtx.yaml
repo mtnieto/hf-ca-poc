@@ -14,22 +14,22 @@ Organizations:
             Admins:
                 Type: Signature
                 Rule: "OR('OrdererMSP.admin')"
-    - &netflix
-        Name: netflixMSP
-        ID: netflixMSP
-        MSPDir: crypto-config/peerOrganizations/netflix.com/msp
-        Policies: &netflixMSPPolicies
+    - &dummyOrg
+        Name: dummyOrgMSP
+        ID: dummyOrgMSP
+        MSPDir: crypto-config/peerOrganizations/dummyOrg.com/msp
+        Policies: &dummyOrgMSPPolicies
             Readers:
                 Type: Signature
-                Rule: "OR('netflixMSP.member')"
+                Rule: "OR('dummyOrgMSP.member')"
             Writers:
                 Type: Signature
-                Rule: "OR('netflixMSP.member')"
+                Rule: "OR('dummyOrgMSP.member')"
             Admins:
                 Type: Signature
-                Rule: "OR('netflixMSP.admin')"
+                Rule: "OR('dummyOrgMSP.admin')"
         AnchorPeers:
-            - Host: peer0.netflix.com
+            - Host: peer0.dummyOrg.com
               Port: 7051
 Capabilities:
     Channel: &ChannelCapabilities
@@ -120,11 +120,11 @@ Profiles:
         Consortiums:
             SampleConsortium:
                 Organizations:
-                    - *netflix
+                    - *dummyOrg
     Channel:
         <<: *ChannelDefaults
         Consortium: SampleConsortium
         Application:
             <<: *ApplicationDefaults
             Organizations:
-                - *netflix
+                - *dummyOrg

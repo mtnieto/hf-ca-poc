@@ -6,22 +6,22 @@
 version: '2'
 
 services:
-  peer0.netflix.com:
-    container_name: peer0.netflix.com
+  peer0.dummyOrg.com:
+    container_name: peer0.dummyOrg.com
     extends:
       file: peer-base.yaml
       service: peer-base
     environment:
-      - CORE_PEER_ID=peer0.netflix.com
-      - CORE_PEER_ADDRESS=peer0.netflix.com:7051
-      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.netflix.com:7051
-      - CORE_PEER_LOCALMSPID=netflixMSP
+      - CORE_PEER_ID=peer0.dummyOrg.com
+      - CORE_PEER_ADDRESS=peer0.dummyOrg.com:7051
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.dummyOrg.com:7051
+      - CORE_PEER_LOCALMSPID=dummyOrgMSP
       
       - CORE_PEER_LISTENADDRESS=0.0.0.0:7051
-      - CORE_PEER_CHAINCODEADDRESS=peer0.netflix.com:7052
+      - CORE_PEER_CHAINCODEADDRESS=peer0.dummyOrg.com:7052
       - CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:7052
     volumes:
         - /var/run/:/host/var/run/
-        - ../crypto-config/peerOrganizations/netflix.com/peers/peer0.netflix.com/msp:/etc/hyperledger/fabric/msp
+        - ../crypto-config/peerOrganizations/dummyOrg.com/peers/peer0.dummyOrg.com/msp:/etc/hyperledger/fabric/msp
     ports:
       - 7051:7051

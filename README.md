@@ -1,4 +1,6 @@
-# hf-ca-poc  
+# Hyperledger Fabric Intermediate CA PoC
+
+Proof of Concept to setting up a Hyperledger Fabric Intermediate CA and to generate all the certificates and artifacts to create a permissioned network.
 
  Tu run the network, please execute the following commands
 

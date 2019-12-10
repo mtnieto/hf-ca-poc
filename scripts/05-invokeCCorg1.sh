@@ -1,11 +1,11 @@
 
 
 ORDERER_CA=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/myapp.com/orderers/orderer0.myapp.com/tls/MyCertificate.crt
-CORE_PEER_LOCALMSPID="netflixMSP"
+CORE_PEER_LOCALMSPID="dummyOrgMSP"
 # En este certificado me contecto al peer
-CORE_PEER_TLS_ROOTCERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/netflix.com/peers/peer0.netflix.com/tls/tlsca.netflix.com.crt.pem
-CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/netflix.com/users/Admin@netflix.com/msp
-CORE_PEER_ADDRESS=peer0.netflix.com:7051
+CORE_PEER_TLS_ROOTCERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/dummyOrg.com/peers/peer0.dummyOrg.com/tls/tlsca.dummyOrg.com.crt.pem
+CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/dummyOrg.com/users/Admin@dummyOrg.com/msp
+CORE_PEER_ADDRESS=peer0.dummyOrg.com:7051
 CHANNEL_NAME=channel1
 CORE_PEER_TLS_ENABLED=false
 

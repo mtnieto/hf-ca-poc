@@ -13,19 +13,19 @@ services:
     command: sh -c 'fabric-ca-server start  -b adminCA:adminpw -d'
     container_name: ca.root
 
-  ica.netflix:
+  ica.dummyOrg:
     image: hyperledger/fabric-ca
     environment:
       - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server-config
-      - FABRIC_CA_SERVER_CA_NAME=ica.netflix
+      - FABRIC_CA_SERVER_CA_NAME=ica.dummyOrg
       - FABRIC_CA_SERVER_TLS_ENABLED=false
       - FABRIC_LOGGING_SPEC=debug
     ports:
       - "8054:7054"
-    command: sh -c 'fabric-ca-server start  -b admin:adminpw -d -u http://ica.netflix:adminpw@ca.root:7054'
+    command: sh -c 'fabric-ca-server start  -b admin:adminpw -d -u http://ica.dummyOrg:adminpw@ca.root:7054'
     volumes:  
      - ./certsICA:/etc/hyperledger/fabric-ca-server
      - ./certsICA:/etc/hyperledger/fabric-ca-server-config
-    container_name: ica.netflix
+    container_name: ica.dummyOrg
 
 
