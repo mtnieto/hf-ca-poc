@@ -25,3 +25,23 @@ services:
         - ../crypto-config/peerOrganizations/dummyOrg.com/peers/peer0.dummyOrg.com/msp:/etc/hyperledger/fabric/msp
     ports:
       - 7051:7051
+  peer0.fakeOrg.com:
+    container_name: peer0.fakeOrg.com
+    extends:
+      file: peer-base.yaml
+      service: peer-base
+    environment:
+      - CORE_PEER_ID=peer0.fakeOrg.com
+      - CORE_PEER_ADDRESS=peer0.fakeOrg.com:7051
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.fakeOrg.com:7051
+      - CORE_PEER_LOCALMSPID=fakeOrgMSP
+      
+      - CORE_PEER_LISTENADDRESS=0.0.0.0:7051
+      - CORE_PEER_CHAINCODEADDRESS=peer0.fakeOrg.com:7052
+      - CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:7052
+    volumes:
+        - /var/run/:/host/var/run/
+        - ../crypto-config/peerOrganizations/fakeOrg.com/peers/peer0.fakeOrg.com/msp:/etc/hyperledger/fabric/msp
+    ports:
+      - 8051:7051
+

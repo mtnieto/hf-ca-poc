@@ -28,4 +28,20 @@ services:
      - ./certsICA:/etc/hyperledger/fabric-ca-server-config
     container_name: ica.dummyOrg
 
+  ica.fakeOrg:
+    image: hyperledger/fabric-ca
+    environment:
+      - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server-config
+      - FABRIC_CA_SERVER_CA_NAME=ica.fakeOrg
+      - FABRIC_CA_SERVER_TLS_ENABLED=false
+      - FABRIC_LOGGING_SPEC=debug
+    ports:
+      - "9054:7054"
+    command: sh -c 'fabric-ca-server start  -b admin:adminpw -d -u http://ica.fakeOrg:adminpw@ca.root:7054'
+    volumes:  
+     - ./certsICA2:/etc/hyperledger/fabric-ca-server
+     - ./certsICA2:/etc/hyperledger/fabric-ca-server-config
+    container_name: ica.fakeOrg
+
+
 

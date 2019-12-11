@@ -25,6 +25,14 @@ services:
       service: peer0.dummyOrg.com
     depends_on:
       - orderer0.myapp.com
+
+  peer0.fakeOrg.com:
+    container_name: peer0.fakeOrg.com
+    extends:
+      file:  base/docker-compose-peer.yaml
+      service: peer0.fakeOrg.com
+    depends_on:
+      - orderer0.myapp.com
   
 
 ###############################################################

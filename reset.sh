@@ -9,3 +9,4 @@ rm -r msp
 rm -r channel-artifacts
 
 
+rm -r certsICA2/*

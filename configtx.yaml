@@ -31,6 +31,23 @@ Organizations:
         AnchorPeers:
             - Host: peer0.dummyOrg.com
               Port: 7051
+    - &fakeOrg
+        Name: fakeOrgMSP
+        ID: fakeOrgMSP
+        MSPDir: crypto-config/peerOrganizations/fakeOrg.com/msp
+        Policies: &fakeOrgMSPPolicies
+            Readers:
+                Type: Signature
+                Rule: "OR('fakeOrgMSP.member')"
+            Writers:
+                Type: Signature
+                Rule: "OR('fakeOrgMSP.member')"
+            Admins:
+                Type: Signature
+                Rule: "OR('fakeOrgMSP.admin')"
+        AnchorPeers:
+            - Host: peer0.fakeOrg.com
+              Port: 7051
 Capabilities:
     Channel: &ChannelCapabilities
         V1_3: true
@@ -121,6 +138,7 @@ Profiles:
             SampleConsortium:
                 Organizations:
                     - *dummyOrg
+                    - *fakeOrg
     Channel:
         <<: *ChannelDefaults
         Consortium: SampleConsortium
@@ -128,3 +146,4 @@ Profiles:
             <<: *ApplicationDefaults
             Organizations:
                 - *dummyOrg
+                - *fakeOrg
